@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h4>{{ question.question_text }}</h4>
+{% if error_message %}
+<div class="alert">
+{{ error_message }}
+</div>
+{% endif %}
+
+    <form class="form" action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+    {% endfor %}
+    <input type="submit" class="btn amber darken-2" value="Vote" />
+    </form>
+
+<br><br>
+<a class="btn black" href="{% url 'polls:index' %}">Home</a>
+{% endblock %}

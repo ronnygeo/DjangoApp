@@ -1,0 +1,22 @@
+body {
+  background-color: #0e5bda; }
+
+.container {
+  position: absolute;
+  margin-top: 10vh;
+  left: 15vw;
+  width: 70vw;
+  height: 80vw;
+  background-color: white;
+  color: black;
+  box-shadow: -1px 1px 5px #444, 0px 0px 1px black;
+  padding: 1rem; }
+
+nav {
+  background-color: black;
+  color: white; }
+
+nav * {
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */
