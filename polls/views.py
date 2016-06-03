@@ -1,8 +1,24 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.views import generic
+
 from .models import Question, Choice
 
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'questions'
+
+    def get_queryset(self):
+        return Question.objects.order_by('-pub_date')
+
+class DetailView(generic.DetailView):
+    template_name = 'polls/detail.html'
+    model = Question
+
+class ResultView(generic.DetailView):
+    template_name = 'polls/results.html'
+    model = Question
 
 # Create your views here.
 def index(request):
