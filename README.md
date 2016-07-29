@@ -1,2 +1,3 @@
-# DjangoApp
-A sample test app with Django
+# Django Sample App
+
+My first Django App!
